@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stéphane Albert — Resume</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #7c3aed;
+      --accent2: #2563eb;
+      --text: #1e1e2e;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg-tag: #f1f5f9;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 10.5pt;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.5;
+    }
+
+    /* ── Page layout ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 18mm 14mm;
+      margin: 0 auto;
+    }
+
+    @media print {
+      @page { size: A4; margin: 0; }
+      .page { padding: 16mm 18mm 14mm; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, var(--accent), var(--accent2)) 1;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      gap: 16px;
+    }
+
+    .header-name h1 {
+      font-size: 22pt;
+      font-weight: 700;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .header-name h2 {
+      font-size: 11pt;
+      font-weight: 400;
+      color: var(--muted);
+      font-family: 'Arial', sans-serif;
+      margin-top: 3px;
+    }
+
+    .header-contact {
+      text-align: right;
+      font-size: 8.5pt;
+      color: var(--muted);
+      font-family: 'Arial', sans-serif;
+      line-height: 1.8;
+    }
+
+    .header-contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── Section ── */
+    section { margin-bottom: 14px; }
+
+    .section-heading {
+      font-family: 'Arial', sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      margin-bottom: 9px;
+    }
+
+    /* ── Summary ── */
+    .summary p { font-size: 9.5pt; color: #374151; }
+
+    /* ── Experience ── */
+    .exp-item { margin-bottom: 11px; }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .exp-company {
+      font-family: 'Arial', sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+    }
+
+    .exp-period {
+      font-family: 'Arial', sans-serif;
+      font-size: 8.5pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .exp-role {
+      font-family: 'Arial', sans-serif;
+      font-size: 9pt;
+      color: var(--accent);
+      font-style: italic;
+      margin-bottom: 3px;
+    }
+
+    .exp-desc {
+      font-size: 9pt;
+      color: #374151;
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 5px 12px;
+    }
+
+    .skill-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--text);
+      padding-top: 2px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .tag {
+      font-family: 'Arial', sans-serif;
+      font-size: 7.5pt;
+      background: var(--bg-tag);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1px 6px;
+    }
+
+    /* ── Projects ── */
+    .project-item { margin-bottom: 9px; }
+    .project-item:last-child { margin-bottom: 0; }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .project-title {
+      font-family: 'Arial', sans-serif;
+      font-size: 9.5pt;
+      font-weight: 700;
+    }
+
+    .project-desc {
+      font-size: 8.5pt;
+      color: #374151;
+      margin-top: 2px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin-top: 4px;
+    }
+
+    /* ── Education ── */
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .edu-degree {
+      font-family: 'Arial', sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+    }
+
+    .edu-school {
+      font-family: 'Arial', sans-serif;
+      font-size: 9pt;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header>
+    <div class="header-name">
+      <h1>Stéphane Albert</h1>
+      <h2>Full-Stack Developer &amp; Designer · Senior Site Reliability Engineer</h2>
+    </div>
+    <div class="header-contact">
+      <div>Toulouse, France · Open to Remote</div>
+      <div><a href="mailto:s.albert@nullplace.com">s.albert@nullplace.com</a></div>
+      <div><a href="https://github.com/sheeprine">github.com/sheeprine</a></div>
+      <div><a href="https://www.linkedin.com/in/stéphane-albert-a486a2100/">linkedin.com/in/stéphane-albert</a></div>
+    </div>
+  </header>
+
+  <!-- Summary -->
+  <section class="summary">
+    <h3 class="section-heading">Summary</h3>
+    <p>
+      Software developer and SRE with 15+ years of experience building and operating large-scale distributed
+      systems, from OpenStack bare-metal fleets to cloud-native Kubernetes platforms. Passionate about
+      open source, developer tooling, and elegant code — comfortable across the full stack from backend
+      APIs to infrastructure automation and polished UIs.
+    </p>
+  </section>
+
+  <!-- Experience -->
+  <section>
+    <h3 class="section-heading">Experience</h3>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">Symphony</span>
+        <span class="exp-period">2021 — Present</span>
+      </div>
+      <div class="exp-role">Senior Site Reliability Engineer</div>
+      <p class="exp-desc">
+        Built the customer onboarding platform combining a Python/FastAPI REST API with PostgreSQL
+        persistence and Go-based Kubernetes operators (Red Hat Operator Framework), delivering
+        full end-to-end infrastructure automation. Reduced customer onboarding from days to minutes
+        and enabled on-demand test environment provisioning, replacing static configurations and
+        accelerating CI/CD workflows. Designed and developed an AI-powered search relevancy tool
+        leveraging semantic search and RAG techniques in Python.
+      </p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">Amadeus</span>
+        <span class="exp-period">2018 — 2021</span>
+      </div>
+      <div class="exp-role">Site Reliability Engineer</div>
+      <p class="exp-desc">
+        Engineered Ansible and Python automation tooling to repurpose and manage a fleet of 7,500
+        bare-metal servers across 15+ Red Hat OpenStack clusters, enabling cost-effective scaling
+        of user-facing search infrastructure.
+      </p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">Airbus</span>
+        <span class="exp-period">2016 — 2018</span>
+      </div>
+      <div class="exp-role">Cloud Architect</div>
+      <p class="exp-desc">
+        Built scalable image processing infrastructure on OpenStack, optimised for high-throughput
+        and compute-intensive workloads. Automated provisioning and configuration of clusters using
+        Ansible and Python. Implemented CI/CD pipelines via GitLab CI to streamline delivery
+        workflows and maintain operational reliability.
+      </p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">Object Libre</span>
+        <span class="exp-period">2012 — 2016</span>
+      </div>
+      <div class="exp-role">Software Engineer</div>
+      <p class="exp-desc">
+        Led the technical development of CloudKitty, an official OpenStack component for rating
+        and billing, fully integrated within the OpenStack ecosystem. Oversaw architecture
+        decisions, drove development best practices, and coordinated contributions in Python to
+        deliver a production-grade, community-adopted open-source solution.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section>
+    <h3 class="section-heading">Skills &amp; Technologies</h3>
+    <div class="skills-grid">
+      <div class="skill-label">Languages</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Go</span>
+        <span class="tag">SQL</span>
+      </div>
+
+      <div class="skill-label">Frontend</div>
+      <div class="skill-tags">
+        <span class="tag">React</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Vue</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">WebGL</span>
+      </div>
+
+      <div class="skill-label">Backend &amp; Data</div>
+      <div class="skill-tags">
+        <span class="tag">FastAPI</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Redis</span>
+        <span class="tag">RabbitMQ</span>
+        <span class="tag">ElasticSearch</span>
+      </div>
+
+      <div class="skill-label">Infrastructure</div>
+      <div class="skill-tags">
+        <span class="tag">Docker</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">OpenStack</span>
+        <span class="tag">AWS</span>
+        <span class="tag">GCP</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">Ansible</span>
+        <span class="tag">Scaleway</span>
+      </div>
+
+      <div class="skill-label">CI/CD</div>
+      <div class="skill-tags">
+        <span class="tag">Jenkins</span>
+        <span class="tag">Circle CI</span>
+        <span class="tag">GitLab CI</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Projects -->
+  <section>
+    <h3 class="section-heading">Selected Projects</h3>
+
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">Search Relevancy Tool — Symphony</span>
+      </div>
+      <p class="project-desc">
+        AI-powered search relevancy tool using semantic search and Retrieval-Augmented Generation (RAG)
+        to enhance accuracy and contextual quality of search results across the platform.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Transformers</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">CloudKitty — Object Libre / OpenStack</span>
+        <span style="font-size:8pt; color: var(--muted); font-family: Arial, sans-serif;">github.com/openstack/cloudkitty</span>
+      </div>
+      <p class="project-desc">
+        Led development of CloudKitty, an official OpenStack rating and billing component.
+        Production-grade, community-adopted open-source solution used across OpenStack deployments worldwide.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">OpenStack</span><span class="tag">RabbitMQ</span><span class="tag">MySQL</span><span class="tag">ElasticSearch</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section>
+    <h3 class="section-heading">Education</h3>
+    <div class="edu-header">
+      <span class="edu-degree">Master's in Network and Systems Engineering</span>
+    </div>
+    <div class="edu-school">Ingesup, Toulouse, France</div>
+  </section>
+
+</div>
+</body>
+</html>
